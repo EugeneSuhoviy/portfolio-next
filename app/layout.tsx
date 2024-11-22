@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/header/navbar";
 import { getHeader } from "../lib/api";
 import Logo from "@/components/header/logo";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Eugene Suhoviy",
@@ -24,6 +25,7 @@ export default async function RootLayout({
           <Logo url={data.logo.url} title={data.logo.title} />
           <Navbar items={data.navbarElementsCollection.items} />
         </header>
+        <Button variant={"default"}>test</Button>
         {children}
       </body>
     </html>
