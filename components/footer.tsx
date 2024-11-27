@@ -6,7 +6,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({text}) => {
   return (
-    <div>
+    <div className="mt-auto">
      footer {text}
     </div>
   );

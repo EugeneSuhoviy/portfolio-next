@@ -1,6 +1,14 @@
 import { Document } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Image from 'next/image';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card"
 
 interface ProjectProps {
     projectDescription: { json: Document }
@@ -14,8 +22,23 @@ interface ProjectProps {
 const Project: React.FC<ProjectProps> = (props) => {
     const { projectDescription, projectTitle, projectRole, projectDate, projectUrl, projectImage } = props;
 
-    return <li className="max-w-sm rounded overflow-hidden shadow-lg m-5">
-        <Image src={projectImage.url} className="w-full" alt={projectTitle} width={600} height={600}/>
+    return <>
+
+        <Card className='max-w-sm m-5'>
+            <CardHeader>
+                <Image src={projectImage.url} className="w-full" alt={projectTitle} width={600} height={600} />
+                <CardTitle>{projectTitle}</CardTitle>
+                <CardDescription><a href={projectUrl} className='mb-3 block'>{projectUrl}</a></CardDescription>
+            </CardHeader>
+            <CardContent>
+                {documentToReactComponents(projectDescription.json)}
+            </CardContent>
+            <CardFooter>
+                {projectDate}
+            </CardFooter>
+        </Card>
+        {/* <li className="max-w-sm rounded overflow-hidden shadow-lg m-5">
+            <Image src={projectImage.url} className="w-full" alt={projectTitle} width={600} height={600} />
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{projectTitle}</div>
                 <a href={projectUrl} className='mb-3 block'>{projectUrl}</a>
@@ -30,7 +53,11 @@ const Project: React.FC<ProjectProps> = (props) => {
                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
             </div>
-    </li>
+        </li> */}
+    </>
+
+
+
 }
 
 export default Project;

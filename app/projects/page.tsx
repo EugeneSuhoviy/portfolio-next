@@ -17,12 +17,14 @@ export default async function Projects() {
 
   return (
     <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-      <h1>Projects</h1>
-      <ul className="flex flex-wrap">
-        {projects.data.pageProjects.projectCollection.items.map((item: ProjectItem) => (
-          <Project key={item.sys.id} {...item} />
-        ))}
-      </ul>
+      <div className="container">
+        <h1>Projects</h1>
+        <ul className="flex flex-wrap">
+          {projects.data.pageProjects.projectCollection.items.map((item: ProjectItem) => (
+            <Project key={item.sys.id} {...item} />
+          ))}
+        </ul>
+      </div>
     </main>
   );
 }

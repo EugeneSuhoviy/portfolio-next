@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/header/navbar";
 import { getHeader } from "../lib/api";
 import Logo from "@/components/header/logo";
-import { Button } from "@/components/ui/button";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Eugene Suhoviy",
@@ -17,16 +17,15 @@ export default async function RootLayout({
 }>) {
   const { data: { header: data } } = await getHeader();
 
-
   return (
     <html lang="en">
-      <body>
+      <body className="flex flex-col min-h-screen">
         <header className="flex justify-between max-w-3xl mx-auto items-center">
           <Logo url={data.logo.url} title={data.logo.title} />
           <Navbar items={data.navbarElementsCollection.items} />
         </header>
-        <Button variant={"default"}>test</Button>
         {children}
+        <Footer text="sdf" />
       </body>
     </html>
   );
