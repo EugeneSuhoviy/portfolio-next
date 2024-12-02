@@ -6,6 +6,8 @@ import Logo from "@/components/header/logo";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "../components/theme-provider";
 import ThemeToggle from "@/components/theme-toggle";
+import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "Eugene Suhoviy",
@@ -21,19 +23,21 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen">
+      <body className={`flex flex-col min-h-screen ${inter.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <header className="flex justify-between max-w-3xl mx-auto items-center">
-            <ThemeToggle />
+          <header className="flex justify-between w-100 items-center">
             <Logo url={data.logo.url} title={data.logo.title} />
-            <Navbar items={data.navbarElementsCollection.items} />
+            <div className="flex">
+              <ThemeToggle />
+              <Navbar items={data.navbarElementsCollection.items} />
+            </div>
           </header>
-          <main className="max-w-3xl mx-auto">
+          <main className="max-w-3xl mx-auto" >
             {children}
           </main>
           <Footer text="sdf" />

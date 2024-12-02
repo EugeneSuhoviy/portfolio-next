@@ -5,7 +5,6 @@ import { useTheme } from "next-themes"
 import { SunIcon, MoonIcon } from '@heroicons/react/24/solid'
 
 const ThemeToggle: React.FC = () => {
-
     const { setTheme, resolvedTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
 

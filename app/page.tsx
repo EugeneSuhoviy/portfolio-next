@@ -6,7 +6,7 @@ export default async function Home() {
   const { data: { aboutPage: data } } = await getAboutPage();
 
   return (
-    <>
+    <>      
       <TitleWithSubtitle title={data.title} subtitle={data.subTitle} />
 
       <div className="max-100">
