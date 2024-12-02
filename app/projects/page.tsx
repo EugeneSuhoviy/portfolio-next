@@ -16,7 +16,7 @@ export default async function Projects() {
   const projects = await getProjects();
 
   return (
-    <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
       <div className="container">
         <h1>Projects</h1>
         <ul className="flex flex-wrap">
@@ -25,6 +25,6 @@ export default async function Projects() {
           ))}
         </ul>
       </div>
-    </main>
+    </div>
   );
 }
