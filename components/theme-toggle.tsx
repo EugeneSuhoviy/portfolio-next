@@ -17,7 +17,7 @@ const ThemeToggle: React.FC = () => {
     }
 
     return <>
-        <button className='p-10' onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>
+        <button className='px-10' onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>
             {resolvedTheme === "dark" ? <SunIcon className="size-6" /> : <MoonIcon className="size-6" />}
         </button>
     </>

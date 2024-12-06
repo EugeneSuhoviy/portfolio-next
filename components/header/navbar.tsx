@@ -11,8 +11,6 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ items }) => {
-    console.log(items);
-
     return (
         <NavigationMenu>
             <NavigationMenuList>
