@@ -36,14 +36,11 @@ export default function ContactForm() {
 
     return (
 
-
         <section className="container">
             <form
                 onSubmit={handleSubmit(processForm)}
                 noValidate
             >
-
-
                 <div className="mb-10">
                     <Input id="name" {...register("name")} placeholder="Name" />
                     {errors.name && <span className="text-red-600">{errors.name.message}</span>}

@@ -23,7 +23,10 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`flex flex-col min-h-screen ${inter.className}`}>
+      <body className={`flex flex-col min-h-screen font-sans text-gray-700 dark:text-gray-200 relative ${inter.className}`}>
+
+        <div className="z-[-1] absolute inset-0 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse 60% 60% at 50% 50%, #000 50%, transparent 100%)]"></div>
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -31,6 +34,7 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <header className="flex justify-between w-100 items-center">
+
             <Logo url={data.logo.url} title={data.logo.title} />
             <div className="flex">
               <ThemeToggle />

@@ -4,7 +4,6 @@ import { Document, INLINES } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import React from 'react';
 import Link from 'next/link';
-import { motion } from "motion/react"
 
 interface TitleWithSubtitleProps {
     title: string,
@@ -24,20 +23,14 @@ const TitleWithSubtitle: React.FC<TitleWithSubtitleProps> = ({ title, subtitle }
 
     return (
         <>
-            <motion.h1
-                initial={{ y: 7, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.1, duration: 0.7, ease: "easeInOut" }}
-                className="text-4xl">
+            <h1 className="text-4xl" >
                 {title}
-            </motion.h1>
+            </h1>
             <br />
-            <motion.div
-                initial={{ y: 7, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.7, ease: "easeInOut" }}>
+            {/* style={{ "--stagger": 1 }} */}
+            <div style={{ "--stagger": 1 }} data-animate>
                 {documentToReactComponents(subtitle.json, RICHTEXT_OPTIONS)}
-            </motion.div>
+            </div>
             <br />
         </>
     );

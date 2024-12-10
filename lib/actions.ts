@@ -22,6 +22,7 @@ export async function sendEmail(data: ContactFormInputs) {
     try {
         const { name, email, message } = result.data;
         const { data, error } = await resend.emails.send({
+            // TODO move to env or config
             from: 'Acme <onboarding@resend.dev>',
             to: ['suhoviy.eugene@gmail.com'],
             subject: 'Hello world',
