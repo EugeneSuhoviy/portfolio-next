@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
-import Image from 'next/image';
 import Link from 'next/link';
 
 interface LogoProps {
@@ -8,7 +7,6 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ title, url }) => {
-
     return <>
         <Link href={'/'}>
         <Avatar>

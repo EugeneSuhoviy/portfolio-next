@@ -1,5 +1,3 @@
-"use client";
-
 import { Document, INLINES } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import React from 'react';
@@ -23,12 +21,11 @@ const TitleWithSubtitle: React.FC<TitleWithSubtitleProps> = ({ title, subtitle }
 
     return (
         <>
-            <h1 className="text-4xl" >
+            <h1 className="text-4xl font-bold no-animation" >
                 {title}
             </h1>
             <br />
-            {/* style={{ "--stagger": 1 }} */}
-            <div style={{ "--stagger": 1 }} data-animate>
+            <div>
                 {documentToReactComponents(subtitle.json, RICHTEXT_OPTIONS)}
             </div>
             <br />
