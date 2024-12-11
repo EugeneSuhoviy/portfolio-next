@@ -13,14 +13,13 @@ import {
 interface ProjectProps {
     projectDescription: { json: Document }
     projectTitle: string
-    projectRole: string
     projectDate: string
     projectUrl: string
     projectImage: { url: string }
 }
 
 const Project: React.FC<ProjectProps> = (props) => {
-    const { projectDescription, projectTitle, projectRole, projectDate, projectUrl, projectImage } = props;
+    const { projectDescription, projectTitle, projectDate, projectUrl, projectImage } = props;
 
     return <>
 
