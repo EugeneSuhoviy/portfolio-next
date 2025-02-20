@@ -50,6 +50,22 @@ const headerQuery = `{
   }
 }`
 
+const postsQuery = `{
+  postCollection {
+    items {
+     ... on Post {
+      title
+      publicationDate
+      readingTime
+      postUrl
+      sys {
+        id
+      }
+    }
+    }
+  }
+}`
+
 async function fetchGraphQL(query: string) {
   const NEXT_PUBLIC_CONTENTFUL_SPACE_ID = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID
   const NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
@@ -74,9 +90,7 @@ export async function getHeader() {
   const headerData = await fetchGraphQL(
     headerQuery
   );
-
-  console.log(headerData);
-
+    
   return headerData;
 }
 
@@ -95,5 +109,28 @@ export async function getProjects() {
   );
 
   return projectsData;
+}
+
+export async function getPosts() {
+  const postsData = await fetchGraphQL(
+    postsQuery
+  );
+
+  return postsData;
+}
+
+export async function getPostById(slug: string) {
+  const postData = await fetchGraphQL(
+    `{
+      post(id: "${slug}") {
+        title
+        content {
+          json
+        }
+      }
+    }`
+  )
+
+  return postData;
 }
 

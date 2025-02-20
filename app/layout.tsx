@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/header/navbar";
 import { getHeader } from "../lib/api";
-import Logo from "@/components/header/logo";
-import Footer from "@/components/footer";
 import { ThemeProvider } from "../components/theme-provider";
 import ThemeToggle from "@/components/theme-toggle";
 import { Inter } from 'next/font/google'
+import Navbar from "@/components/header/navbar";
+import Logo from "@/components/header/logo";
+import Footer from "@/components/footer";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -34,16 +34,19 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <header className="flex justify-between w-100 items-center min-h-20 px-5 py-5">
-
             <Logo url={data.logo.url} title={data.logo.title} />
+
             <div className="flex">
               <ThemeToggle />
               <Navbar items={data.navbarElementsCollection.items} />
             </div>
+
           </header>
+
           <main className="max-w-3xl mx-auto slide-enter-content" >
             {children}
           </main>
+          
           <Footer text="sdf" />
         </ThemeProvider>
       </body>
