@@ -19,14 +19,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { data: { header: data } } = await getHeader();
+  const { data: { header: data } } = await getHeader(); 
 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`flex flex-col min-h-screen font-sans text-gray-700 dark:text-gray-200 relative ${inter.className}`}>
 
-        <div className="z-[-1] absolute inset-0 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse 60% 60% at 50% 50%, #000 50%, transparent 100%)]"></div>
-
+      <div className="absolute -z-10 inset-0 h-full w-full bg-[radial-gradient(circle,#73737350_1px,transparent_1px)] bg-[size:10px_10px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_80%,transparent_100%)]" />
+      
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
