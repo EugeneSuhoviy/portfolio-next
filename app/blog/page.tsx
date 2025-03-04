@@ -4,7 +4,7 @@ type PostItem = {
   sys: {
     id: string;
   };
-  postUrl: string;
+  slug: string;
   title: string;
 };
 
@@ -12,15 +12,15 @@ export default async function Blog() {
   const posts = await getPosts();
 
   return (
-    <>
-      <h1 className="no-animation">BLOG</h1>
-      <ul>
+    <section className="max-w-3xl mx-auto">
+      <h1 className="no-animation text-3xl font-bold text-center">BLOG</h1>
+      <ul className="slide-enter-content">
         {posts.data.postCollection.items.map((item: PostItem) => (
           <li key={item.sys.id}>
-            <a href={`/blog/${item.postUrl}`}>{item.title}</a>
+            <a href={`/blog/${item.slug}`}>{item.title}</a>
           </li>
         ))}
       </ul>
-    </>
+    </section>
   );
 }

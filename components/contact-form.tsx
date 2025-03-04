@@ -35,23 +35,23 @@ export default function ContactForm() {
     }
 
     return (
-
         <section className="container">
             <form
                 onSubmit={handleSubmit(processForm)}
                 noValidate
+                className="slide-enter-content"
             >
-                <div className="mb-10">
+                <div className="mb-10 bg-background">
                     <Input id="name" {...register("name")} placeholder="Name" />
                     {errors.name && <span className="text-red-600">{errors.name.message}</span>}
                 </div>
 
-                <div className="mb-10">
+                <div className="mb-10 bg-background">
                     <Input id="email" {...register("email")} placeholder="Email" />
                     {errors.email && <span className="text-red-600">{errors.email.message}</span>}
                 </div>
 
-                <div className="mb-10">
+                <div className="mb-10 bg-background">
                     <Textarea id="message" {...register("message")} placeholder="Message" />
                     {errors.message && <span className="text-red-600">{errors.message.message}</span>}
                 </div>

@@ -33,17 +33,16 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header className="flex justify-between w-100 items-center min-h-20 px-5 py-5">
+            <header className="flex justify-between w-100 items-center min-h-[120px] px-5 py-5">
             <Logo url={data.logo.url} title={data.logo.title} />
 
             <div className="flex">
               <ThemeToggle />
               <Navbar items={data.navbarElementsCollection.items} />
             </div>
+            </header>
 
-          </header>
-
-          <main className="max-w-3xl mx-auto slide-enter-content" >
+          <main>
             {children}
           </main>
           

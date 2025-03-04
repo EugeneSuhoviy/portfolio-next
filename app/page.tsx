@@ -6,9 +6,9 @@ export default async function Home() {
   const { data: { aboutPage: data } } = await getAboutPage();
 
   return (
-    <>
+    <section className="max-w-3xl mx-auto slide-enter-content">
       <TitleWithSubtitle title={data.title} subtitle={data.subTitle} />
       <Description reachTextJson={data.description.json} />
-    </>
+    </section>
   );
 }

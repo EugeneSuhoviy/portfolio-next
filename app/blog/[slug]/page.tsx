@@ -1,4 +1,5 @@
 import { getPostById } from "@/lib/api";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 export default async function Page({
     params,
@@ -8,14 +9,11 @@ export default async function Page({
     const slug = (await params).slug;
     const postData = await getPostById(slug);
 
-    console.log("params ______________________", slug);
+    return <section className="max-w-3xl mx-auto">
+        <h1 className="no-animation">{postData.data.postCollection.items[0].title}</h1>
+        <div className="slide-enter-content">
+            {documentToReactComponents(postData.data.postCollection.items[0].content.json)}
+        </div>
 
-
-    return <>
-
-        <pre>{JSON. stringify(postData, null, 2)}</pre>
-
-
-        <div className="no-animation">My Post: {slug}</div>
-    </>
+    </section>
 }

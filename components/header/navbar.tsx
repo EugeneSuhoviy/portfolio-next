@@ -16,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({ items }) => {
             <NavigationMenuList>
                 {items.map((item: { title: string, slug: string }) => {
                     return <NavigationMenuItem key={item.slug}>
-                        <Link href={item.slug} legacyBehavior passHref>
+                        <Link href={`/${item.slug}`} legacyBehavior passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                 {item.title}
                             </NavigationMenuLink>

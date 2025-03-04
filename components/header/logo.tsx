@@ -9,12 +9,11 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ title, url }) => {
     return <>
         <Link href={'/'}>
-        <Avatar>
-            <AvatarImage className="max-w-20" src={url} alt={title} />
-            <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
+            <Avatar>
+                <AvatarImage className="max-w-20 rounded-full" src={url} alt={title} />
+                <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
         </Link>
-
     </>
 };
 

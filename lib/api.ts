@@ -1,3 +1,4 @@
+
 const aboutPageQuery = `{
   aboutPage(id: "4nWqD5MorXrFM4uUjKPVKT") {
     title
@@ -43,7 +44,7 @@ const headerQuery = `{
         slug
       }
     }
-    logo{
+    logo {
       url(transform: {cornerRadius: -1})
       title
     }
@@ -53,15 +54,13 @@ const headerQuery = `{
 const postsQuery = `{
   postCollection {
     items {
-     ... on Post {
-      title
-      publicationDate
-      readingTime
-      postUrl
       sys {
         id
       }
-    }
+      title
+      publicationDate
+      readingTime
+      slug
     }
   }
 }`
@@ -90,7 +89,7 @@ export async function getHeader() {
   const headerData = await fetchGraphQL(
     headerQuery
   );
-    
+
   return headerData;
 }
 
@@ -122,10 +121,12 @@ export async function getPosts() {
 export async function getPostById(slug: string) {
   const postData = await fetchGraphQL(
     `{
-      post(id: "${slug}") {
-        title
-        content {
-          json
+      postCollection(where: { slug: "${slug}" }) {
+        items {
+          title
+          content {
+            json
+          }
         }
       }
     }`
