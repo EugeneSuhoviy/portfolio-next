@@ -32,10 +32,10 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main>
+          <main className="px-7">
             {children}
           </main>
-          <Footer text="sdf" />
+          <Footer text="sdf"/>
         </ThemeProvider>
       </body>
     </html>

@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -10,13 +11,16 @@ import {
 import { Menu } from "lucide-react";
 import Link from "next/link";
 
+
 type CustomSheetProps = {
   items: { title: string, slug: string }[];
 }
 
 const CustomSheet = ({ items }: CustomSheetProps) => {
-  return <Sheet>
-    <SheetTrigger>
+  const [open, setOpen] = useState(false);
+
+  return <Sheet open={open} onOpenChange={setOpen}>
+    <SheetTrigger className="lg:hidden">
       <Menu />
     </SheetTrigger>
     {/* TODO: fix undefined */}
@@ -26,7 +30,7 @@ const CustomSheet = ({ items }: CustomSheetProps) => {
         <ul>
           {items.map((item: { title: string, slug: string }) => {
             return <li key={item.slug}>
-              <Link href={`/${item.slug}`} legacyBehavior passHref>
+              <Link href={`/${item.slug}`} onClick={() => { setOpen(false) }}>
                 {item.title}
               </Link>
             </li>
